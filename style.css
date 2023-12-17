@@ -1,0 +1,243 @@
+:root {
+    --main: rgba(225, 51, 51,0.7);
+    --background: #1b1b1b;
+    --text: #ffffff;
+}
+body{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--background);
+    margin-left:15px;
+    margin-right:15px;
+}
+h1, h2, h3, h4, h5, h6, p, label, button, input{
+    margin:0;
+    color:var(--text);
+    font-weight: 100;
+    font-family: 'Roboto', sans-serif;
+}
+label{
+    text-wrap: nowrap;
+    font-size:1.1rem;
+}
+select{
+    border:none;
+    border-right:1px solid white;
+    background: transparent;
+    color:white;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.largerText{
+    font-size: 1.4rem;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+input::placeholder {
+    color: var(--text);
+    opacity: 0.5; /* Firefox */
+  }
+  
+input::-ms-input-placeholder { /* Edge 12 -18 */
+    color: var(--text);
+  }
+
+input{
+    text-align: center;
+    background: none;
+    border: 1px solid var(--text);
+    caret-color: var(--text);
+    font-size:1.2rem;
+}
+
+.gap{
+    gap: 5px;
+}
+.width95{
+    width:95%;
+}
+.removeBorder{
+    border-color: transparent;
+}
+.roundedEdges{
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.flexRow{
+    display:flex;
+    flex-direction:row;
+}
+.flexColumn{
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
+.columnMobileRowDesktop{
+    display:flex;
+    flex-direction:column;
+}
+.container{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
+.reallyTall{
+    position:relative;
+    height:800px;
+}
+.absolute{
+    position:absolute;
+}
+.leftSide{
+    left:5%;
+}
+
+.top10{
+    top:10%;
+}
+.top30{
+    top:30%;
+}
+.top40{
+    top:40%;
+}
+.top50{
+    top:50%;
+}
+.top60{
+    top:60%;
+}
+.top90{
+    top:80%;
+}
+.item{
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    background:var(--main);
+    padding:20px 5px 20px 5px;
+}
+.sideBars{
+    font-size:1.3rem;
+    font-weight: 100;
+}
+.individualTrackerContainer{
+    border:1px solid var(--text);
+    width:10rem;
+}
+
+.individualStatContainer{
+    width:10rem;
+    border: 1px solid var(--text);
+}
+.individualStatContainer:hover{
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+.individualTrackerContainer:hover{
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+.statInput{
+    width:2rem;
+}
+.statLabel{
+    margin:5px 5px 0px 5px;
+    width:auto;
+    text-align: center;
+}
+.statListContainer{
+    margin-right:5px;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-column-gap: 15px;
+    grid-row-gap: 10px;
+}
+#addSkillButton{
+    margin-top:20px;
+    background:transparent;
+    color:var(--text);
+    border:1px solid var(--text);
+    border-radius:50px;
+    height:50px;
+    width:50px;
+}
+#addSkillButton:hover{
+    cursor:pointer;
+    box-shadow: inset 0 0 10px var(--main);
+    background:var(--text);
+    color: var(--main);
+}
+.skillBonusNumber{
+    margin-left:1rem;
+}
+.skillName{
+    border:none;
+}
+.damageDice{
+    margin:0;
+    width:2rem;
+}
+@media screen and (min-width: 800px) {
+    .individualTrackerContainer{
+    }
+    .container{
+        margin-right:5px;
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        grid-column-gap: 5px;
+        grid-row-gap: 5px;
+    }
+    .stretchAcross{
+        grid-column: 1 / -1;
+    }
+    .stretchDown{
+        grid-row-start:4;
+        grid-row-end:6;
+    }
+    .holder{
+        align-self: flex-start;
+        width:100%;
+        height: 50px;
+    }
+    .item{
+        align-self: flex-start;
+        width:auto;
+        height: 50px;
+    }
+    .heightIncrease{
+        height: 80px;
+    }
+    .columnMobileRowDesktop{
+        flex-direction:row;
+    }
+    .statListContainer{
+        display:flex;
+        flex-direction:row;
+        column-width: auto;
+        gap:10px;
+    }
+    .individualStatContainer{
+        width:4rem;
+    }
+    .statLabel{
+        width:auto;
+        text-align: center;
+    }
+    .reallyTall{
+        height:750px;
+    }
+}

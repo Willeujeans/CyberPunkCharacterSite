@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello, world!</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+  <div class = "container gap">
+    <!-- Title -->
+    <div class="item roundedEdges">
+        <div class="flexColumn">
+            <h2>Cyberpunk Red</h2>
+            <p>Character Sheet</p>
+        </div>
+    </div>
+
+ <!-- Character Name and Role -->
+    <div class="item roundedEdges ">
+        <div class ="flexRow gap">
+            <div class="flexColumn">
+                <label class="largerText">Character Name</label>
+                <input id="characterName" class="roundedEdges width95" type="text" placeholder="'The Barrel' Miller">
+            </div>
+            <div class="flexColumn">
+                <label class="largerText">Role</label>
+                <input id="characterRole" class="roundedEdges width95" type="text" placeholder="fixer">
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Container -->
+    <div class="roundedEdges item stretchAcross">
+        <div class="statListContainer">
+            <!-- StatsList -->
+            <div class="flexColumn individualStatContainer roundedEdges">
+                <label id="statINT" class="statLabel">INT</label>
+                <input class="removeBorder statInput" type="number" placeholder="1"></input>
+            </div>
+            <div class="flexColumn individualStatContainer roundedEdges">
+                <label id="statREF" class="statLabel">REF</label>
+                <input class="removeBorder statInput" type="number" placeholder="2"></input>
+            </div>
+            <div class="flexColumn individualStatContainer roundedEdges">
+                <label id="statDEX" class="statLabel">DEX</label>
+                <input class="removeBorder statInput" type="number" placeholder="2"></input>
+            </div>
+            <div class="flexColumn individualStatContainer roundedEdges">
+                <label id="statTECH" class="statLabel">TECH</label>
+                <input class="removeBorder statInput" type="number" placeholder="2"></input>
+            </div>
+            <div class="flexColumn individualStatContainer roundedEdges">
+                <label id="statCOOL" class="statLabel">COOL</label>
+                <input class="removeBorder statInput" type="number" placeholder="2"></input>
+            </div>
+            <div class="flexColumn individualStatContainer roundedEdges">
+                <label id="statWILL" class="statLabel">WILL</label>
+                <input class="removeBorder statInput" type="number" placeholder="2"></input>
+            </div>
+            <div class="flexColumn individualStatContainer roundedEdges">
+                <label id="statLUCK" class="statLabel">LUCK</label>
+                <input class="removeBorder statInput" type="number" placeholder="2"></input>
+            </div>
+            <div class="flexColumn individualStatContainer roundedEdges">
+                <label id="statMOVE" class="statLabel">MOVE</label>
+                <input class="removeBorder statInput" type="number" placeholder="2"></input>
+            </div>
+            <div class="flexColumn individualStatContainer roundedEdges">
+                <label id="statBODY" class="statLabel">BODY</label>
+                <input class="removeBorder statInput" type="number" placeholder="2"></input>
+            </div>
+            <div class="flexColumn individualStatContainer roundedEdges">
+                <label id="statEMP" class="statLabel">EMP</label>
+                <input class="removeBorder statInput" type="number" placeholder="2"></input>
+            </div>
+        </div>
+    </div>
+
+ <!-- HP, Wounds, Death Saves, Luck -->
+    <div class="item roundedEdges stretchAcross">
+        <div class="statListContainer">
+            <div class="flexColumn individualTrackerContainer roundedEdges">
+                <label id="trackerCURRENTHP" class="statLabel">Current HP</label>
+                <input class="removeBorder statInput" type="number" placeholder="2"></input>
+            </div>
+            <div class="flexColumn individualTrackerContainer roundedEdges">
+                <label id="trackerTOTALHP" class="statLabel">Total HP</label>
+                <input class="removeBorder statInput" type="number" placeholder="2"></input>
+            </div>
+            <div class="flexColumn individualTrackerContainer roundedEdges">
+                <label id="trackerSERIOUSLYWOUNDED" class="statLabel">Seriously Wounded</label>
+                <input class="removeBorder statInput" type="number" placeholder="2"></input>
+            </div>
+            <div class="flexColumn individualTrackerContainer roundedEdges">
+                <label id="trackerDEATHSAVES" class="statLabel">Death Saves</label>
+                <input class="removeBorder statInput" type="number" placeholder="2"></input>
+            </div>
+            <div class="flexColumn individualTrackerContainer roundedEdges">
+                <label id="trackerLUCKREMAINING" class="statLabel">Luck Remaining</label>
+                <input class="removeBorder statInput" type="number" placeholder="2"></input>
+            </div>
+        </div>
+    </div>
+    <!-- Weapons -->
+    <div class="item roundedEdges heightIncrease">
+        <h3>Weapons</h3>
+        <div class="container">
+            <div class="flexRow">
+                <input class="" type="text" placeholder="rippers">
+                <input class="damageDice" type="number" placeholder="2">
+                <select >
+                    <option>d4</option>
+                    <option>d6</option>
+                    <option>d8</option>
+                    <option>d10</option>
+                    <option>d12</option>
+                </select>
+            </div>
+            <div class="flexRow">
+                <input type="text" placeholder="rippers">
+                <input class="damageDice" type="number" placeholder="2">
+                <select >
+                    <option>d4</option>
+                    <option>d6</option>
+                    <option>d8</option>
+                    <option>d10</option>
+                    <option>d12</option>
+                </select>
+
+            </div>
+            <div class="flexRow">
+                <input type="text" placeholder="rippers">
+                <input class="damageDice" type="number" placeholder="2">
+                <select >
+                    <option>d4</option>
+                    <option>d6</option>
+                    <option>d8</option>
+                    <option>d10</option>
+                    <option>d12</option>
+                </select>
+            </div>
+            <div class="flexRow">
+                <input type="text" placeholder="rippers">
+                <input class="damageDice" type="number" placeholder="2">
+                <select >
+                    <option>d4</option>
+                    <option>d6</option>
+                    <option>d8</option>
+                    <option>d10</option>
+                    <option>d12</option>
+                </select>
+            </div>
+        </div>
+    </div>
+        <!-- Armor -->
+        <div class="item roundedEdges heightIncrease">
+            <h3>Armor</h3>
+            <div class="flexRow">
+                <div class="flexColumn">
+                    <label> Armor Type</label>
+                    <input type="text">
+                </div>
+                <div class="flexColumn">
+                    <label> Armor Type Head</label>
+                    <input type="text">
+                </div>
+            </div>
+        </div>
+
+    <!-- CyberWear -->
+    <div class="item roundedEdges reallyTall stretchAcross">
+        <p>CyberWear</p>
+        <img src="images/body.png" width="280" height="620" alt="outline of a body">
+        <div class="container">
+            <input class="" type="text" placeholder="cyberWear">
+            <input class="" type="text" placeholder="cyberWear">
+            <input class="" type="text" placeholder="cyberWear">
+            <input class="" type="text" placeholder="cyberWear">
+            <input class="" type="text" placeholder="cyberWear">
+            <input class="" type="text" placeholder="cyberWear">
+        </div>
+        
+    </div>
+     <!-- Skills -->
+   <div class="item roundedEdges heightIncrease stretchAcross">
+    <h3>Skills</h3>
+        <div id="skillContainer" class="flexColumn gap">
+        </div>
+        <button id="addSkillButton">+</button>
+   </div>
+
+
+  </div>
+  <script src="home.js"></script>
+</body>
+
+
+</html>
