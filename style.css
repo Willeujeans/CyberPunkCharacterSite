@@ -35,6 +35,7 @@ select{
     background: transparent;
     color:white;
 }
+
 .noBorder{
     border:none;
 }
@@ -59,7 +60,7 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
-textarea:focus, input:focus{
+textarea:focus, input:focus, select:focus{
     outline: none;
 }
 input::placeholder {
@@ -132,6 +133,11 @@ input{
 .marginBottom{
     margin-bottom:1rem;
 }
+.borderBottom{
+    padding:10px;
+    border:1px solid white;
+    border-left:5px solid white;
+}
 .item{
     align-self: flex-start;
     position: relative;
@@ -139,9 +145,13 @@ input{
     width:100%;
     height:auto;
 }
+.gapLarger{
+    gap:23px;
+}
 .sideBars{
     font-size:1.3rem;
     font-weight: 100;
+    margin:-5px -5px -6px -5px;
 }
 .individualTrackerContainer{
     overflow:hidden;
@@ -185,6 +195,10 @@ input{
     height:50px;
     width:50px;
 }
+.alignLeft{
+    align-self: start;
+    text-align:start;
+}
 .textAlignLeft{
     text-align: start;
 }
@@ -196,9 +210,12 @@ input{
 }
 .skillBonusNumber{
     text-align: center;
-    margin-left:1rem;
     margin-right: -.5rem;
     font-size:1.2rem;
+}
+#TOTAL{
+    text-align: center;
+    font-size:1.3rem;
 }
 .skillName{
     border:none;
@@ -217,7 +234,10 @@ input{
 .fillWidth{
     width:90% !important;
 }
-@media screen and (min-width: 870px) {
+@media screen and (min-width: 1000px) {
+    .inputMedium{
+        width:16rem;
+    }
     .individualTrackerContainer{
         width:12rem;
     }

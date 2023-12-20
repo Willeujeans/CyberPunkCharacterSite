@@ -1,11 +1,40 @@
 var attributeArray = ["INT","REF","DEX","TECH","COOL","WILL","LUCK","MOVE","BODY","EMP"]
 var diceArray = ["D2","D4","D6","D8","D10","D12","D20","D100"]
+var cyberwareLocationArray = ["Right Cybereye","Left Cybereye", "CyberAudio Suite","Right Cyberarm","Left Cyberarm","Neural Link","Right Cyberleg","Left Cyberleg","Internal Cyberware","External Cyberware","Fashionware","Borgware"]
+var classArray = ["solo","netrunner","fixer","nomad","rockerboy","techie","corporate","cop"]
+var skillArray = ["Accounting [INT]", "Acting [COOL]", "Air Vehicle Tech [TECH]", "Animal Handling [INT]", "Archery [REF]", "Athletics [DEX]", "Autofire [REF]", "Basic Tech [TECH]", "Brawling [DEX]", "Bribery [COOL]", "Bureaucracy [INT]", "Business [INT]", "Composition [INT]", "Conceal/Reveal Object [INT]", "Concentration [WILL]", "Contortionist [DEX]", "Conversation [EMP]", "Criminology [INT]", "Cryptography [INT]", "Cyber Tech [TECH]", "Dance [DEX]", "Deduction [INT]", "Demolitions [TECH]", "Drive Land Vehicle [REF]", "Driving [REF]", "Education [INT]", "Electronics/Security Tech [TECH]", "Endurance [WILL]", "Evasion [DEX]", "First Aid [TECH]", "Forgery [TECH]", "Gamble [INT]", "Handgun [REF]", "Heavy Weapons [REF]", "Human Perception [EMP]", "Interrogation [COOL]", "Land Vehicle Tech [TECH]", "Language [INT]", "Library Search [INT]", "Lipreading [INT]", "Local Expert [INT]", "Marksmanship [REF]", "Martial Arts [DEX]", "Melee Weapon [DEX]", "Paint/Draw/Sculpt [TECH]", "Paramedic [TECH]", "Perception [INT]", "Personal Grooming [COOL]", "Persuasion [COOL]", "Photography/Film [TECH]", "Picklock [TECH]", "Pickpocket [TECH]", "Pilot Air Vehicle [REF]", "Pilot Sea Vehicle [REF]", "Play Instrument [EMP]", "Resist Torture/Drugs [WILL]", "Riding [REF]", "Science [INT]", "Sea Vehicle Tech [TECH]", "Shoulder Arms [REF]", "Stealth [DEX]", "Streetwise [COOL]", "Tactics [INT]", "Tracking [INT]", "Trading [COOL]", "Wardrobe/Style [COOL]", "Weapons Tech [TECH]", "Wilderness Survival [INT]"]
+var armorArray = ["none [SP-0]","Leathers [SP-4]","Kevlar [SP-7]", "LightArmorJack [SP-11]","Bodyweight Suit [SP-11]", "Medium Armorjack [SP-11]","Heavy Armorjack [SP-13]","Flak [SP-15]","Metalgear [SP-18]","Bulletproof Shield [HP-10]"]
 var storage = []
 const slot = {
     parent: null,
     children: []
-  };
+};
 
+function getAllAttributeElms(){
+    var arrayOfAttributeElms = [];
+    attributeArray.forEach((element) => arrayOfAttributeElms.push(document.getElementById(element)));
+    console.log(arrayOfAttributeElms);
+    return arrayOfAttributeElms;
+}
+function addOnChangeAttribute(){
+    getAllAttributeElms().forEach((element) => element.addEventListener("change", (event) => {
+        console.log("changed");
+        updateAttributeTotal();
+    }) );
+}
+
+function updateAttributeTotal(){
+    var totalCount = 0;
+    getAllAttributeElms().forEach((element) => {
+        if(element.value != ""){
+            totalCount += parseInt(element.value);
+            console.log(totalCount);
+        }
+    });
+    var statTotalElm = document.getElementById("TOTAL");
+    statTotalElm.innerText = totalCount.toString();
+}
+addOnChangeAttribute();
 
 
 function giveAddButtonFunctionality(buttonName){
@@ -20,14 +49,14 @@ function giveAddButtonFunctionality(buttonName){
             createSkillSlot(parentContainer);
         });
     }
-    if(containerName[1] == "inventory"){
-        button.addEventListener("click", function (event){
-            createInventorySlot(parentContainer);
-        });
-    }
     if(containerName[1] == "weapon"){
         button.addEventListener("click", function (event){
             createWeaponSlot(parentContainer);
+        });
+    }
+    if(containerName[1] == "cyberware"){
+        button.addEventListener("click", function (event){
+            createCyberwareSlot(parentContainer);
         });
     }
     if(containerName[1] == "respect"){
@@ -35,16 +64,16 @@ function giveAddButtonFunctionality(buttonName){
             createRespectSlot(parentContainer);
         });
     }
+    if(containerName[1] == "inventory"){
+        button.addEventListener("click", function (event){
+            createInventorySlot(parentContainer);
+        });
+    }
 }
 function createSkillSlot(parentContainer){
     var row = createRow();
-    var input = document.createElement("input");
-    input.type = "text";
-    input.classList.add("textAlignLeft");
-    input.placeholder = "data entry"
-
-    var dropDown = createDropDown(attributeArray);
-
+    var skillDropdown = createDropDown(skillArray);
+    skillDropdown.classList.add("alignLeft");
     var plusText = createText("+");
     plusText.classList.add("skillBonusNumber");
 
@@ -53,8 +82,7 @@ function createSkillSlot(parentContainer){
     numInput.classList.add("inputSmaller");
     numInput.placeholder = 0;
 
-    row.appendChild(input);
-    row.appendChild(dropDown);
+    row.appendChild(skillDropdown);
     row.appendChild(plusText);
     row.appendChild(numInput);
     row = addSideBars(row);
@@ -100,6 +128,32 @@ function createWeaponSlot(parentContainer){
     var dropDown = createDropDown(diceArray);
     row.appendChild(dropDown);
     row = addSideBars(row);
+    parentContainer.appendChild(row);
+    storeSlot(row, parentContainer);
+}
+
+function createCyberwareSlot(parentContainer){
+    var row = createRow();
+    row.classList.add("columnMobileRowDesktop");
+    row.classList.add("borderBottom");
+
+    var textInput = document.createElement("input");
+    textInput.type = "text";
+    textInput.placeholder = "data entry";
+    textInput.classList.add("textAlignLeft");
+    row.appendChild(textInput);
+
+    var dataText = document.createElement("input");
+    dataText.type = "text";
+    dataText.placeholder = "data entry";
+    dataText.classList.add("textAlignLeft");
+    row.appendChild(dataText);
+
+    var placement = createDropDown(cyberwareLocationArray);
+    placement.classList.add("textAlignLeft");
+    row.appendChild(placement);
+
+    // row = addSideBars(row);
     parentContainer.appendChild(row);
     storeSlot(row, parentContainer);
 }
@@ -169,8 +223,33 @@ function storeSlot(row, parentContainer){
     createdSlot.parent = parentContainer;
 }
 
+function createRoleDropdown(){
+    var insertPlacement = document.getElementById("roleInsert");
+    var dropdown = createDropDown(classArray);
+    dropdown = addSideBars(dropdown);
+    insertPlacement.appendChild(dropdown);
+}
+
+function createBodyArmorDropdown(){
+    var bodyInsert = document.getElementById("bodyArmorInsert");
+    var bodyDropdown = createDropDown(armorArray);
+    bodyDropdown.classList.add("inputMedium");
+    bodyDropdown = addSideBars(bodyDropdown);
+    bodyInsert.appendChild(bodyDropdown);
+
+    var headInsert = document.getElementById("headArmorInsert");
+    var headDropdown = createDropDown(armorArray);
+    headDropdown.classList.add("inputMedium");
+    headDropdown = addSideBars(headDropdown);
+    headInsert.appendChild(headDropdown);
+}
+
 //(buttonName, [text, string], [select,options], number)
 giveAddButtonFunctionality("add_skill");
 giveAddButtonFunctionality("add_weapon");
+giveAddButtonFunctionality("add_cyberware");
 giveAddButtonFunctionality("add_respect");
 giveAddButtonFunctionality("add_inventory");
+
+createRoleDropdown();
+createBodyArmorDropdown();

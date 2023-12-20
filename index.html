@@ -16,7 +16,6 @@
 <body>
   <div class = "container gap">
 
-
     <div class="stretchAcross flexColumn">
     <div class="container gap">
     <!-- Title -->
@@ -41,10 +40,7 @@
             </div>
             <div class="flexColumn">
                 <label class="largerText">ROLE</label>
-                <div class="flexRow">
-                    <p class="sideBars">[</p>
-                        <input id="characterRole" class="roundedEdges width95" type="text" placeholder="data entry">
-                    <p class="sideBars">]</p>
+                <div class="flexRow" id="roleInsert">
                 </div>
             </div>
         </div>
@@ -93,85 +89,86 @@
             <!-- StatsList -->
             <div class="flexColumn individualStatContainer roundedEdges">
                 <div class="backgroundWhite">
-                <label id="INT" class="statLabel">INT</label>
+                <label class="statLabel">INT</label>
                 </div>
-                <input class="removeBorder statInput" type="number" placeholder="0"></input>
+                <input id="INT" class="removeBorder statInput" type="number" placeholder="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
                 <div class="backgroundWhite">
-                <label id="REF" class="statLabel">REF</label>
+                <label class="statLabel">REF</label>
                 </div>
-                <input class="removeBorder statInput" type="number" placeholder="0"></input>
+                <input id="REF" class="removeBorder statInput" type="number" placeholder="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
                 <div class="backgroundWhite">
-                <label id="DEX" class="statLabel">DEX</label>
+                <label class="statLabel">DEX</label>
                 </div>
-                <input class="removeBorder statInput" type="number" placeholder="0"></input>
+                <input id="DEX" class="removeBorder statInput" type="number" placeholder="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
                 <div class="backgroundWhite">
-                <label id="TECH" class="statLabel">TECH</label>
+                <label class="statLabel">TECH</label>
                 </div>
-                <input class="removeBorder statInput" type="number" placeholder="0"></input>
+                <input id="TECH" class="removeBorder statInput" type="number" placeholder="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
                 <div class="backgroundWhite">
-                <label id="COOL" class="statLabel">COOL</label>
+                <label class="statLabel">COOL</label>
                 </div>
-                <input class="removeBorder statInput" type="number" placeholder="0"></input>
+                <input id="COOL" class="removeBorder statInput" type="number" placeholder="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
                 <div class="backgroundWhite">
-                <label id="WILL" class="statLabel">WILL</label>
+                <label class="statLabel">WILL</label>
                 </div>
-                <input class="removeBorder statInput" type="number" placeholder="0"></input>
+                <input id="WILL" class="removeBorder statInput" type="number" placeholder="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
                 <div class="backgroundWhite">
-                <label id="LUCK" class="statLabel">LUCK</label>
+                <label class="statLabel">LUCK</label>
                 </div>
-                <input class="removeBorder statInput" type="number" placeholder="0"></input>
+                <input id="LUCK" class="removeBorder statInput" type="number" placeholder="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
                 <div class="backgroundWhite">
-                <label id="MOVE" class="statLabel">MOVE</label>
+                <label  class="statLabel">MOVE</label>
                 </div>
-                <input class="removeBorder statInput" type="number" placeholder="0"></input>
+                <input id="MOVE" class="removeBorder statInput" type="number" placeholder="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
                 <div class="backgroundWhite">
-                <label id="BODY" class="statLabel">BODY</label>
+                <label class="statLabel">BODY</label>
                 </div>
-                <input class="removeBorder statInput" type="number" placeholder="0"></input>
+                <input id="BODY" class="removeBorder statInput" type="number" placeholder="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
                 <div class="backgroundWhite">
-                <label id="EMP" class="statLabel">EMP</label>
+                <label class="statLabel">EMP</label>
                 </div>
-                <input class="removeBorder statInput" type="number" placeholder="0"></input>
+                <input id="EMP" class="removeBorder statInput" type="number" placeholder="0"></input>
+            </div>
+            <div class="flexColumn individualStatContainer roundedEdges">
+                <div class="backgroundWhite">
+                <label class="statLabel">TOTAL</label>
+                </div>
+                <p id="TOTAL" class="removeBorder">0</p>
             </div>
         </div>
     </div>
 
          <!-- Armor -->
          <div class="item roundedEdges flexColumn backgroundMain">
-            <div class="flexRow gap">
+            <div class="flexColumn gapLarger">
                 <div class="flexColumn">
-                    <h3>HEAD ARMOR</h3>
                     <div class="flexRow">
-                        <p class="sideBars">[</p>
-                            <input class="noBorder" type="text" placeholder="data entry">
-                        <p class="sideBars">]</p>
+                            <label>Head></label>
+                            <div id="headArmorInsert"></div>
                     </div>
-
                 </div>
                 <div class="flexColumn">
-                    <h3>BODY ARMOR</h3>
                     <div class="flexRow">
-                        <p class="sideBars">[</p>
-                            <input class="noBorder" type="text" placeholder="data entry">
-                        <p class="sideBars">]</p>
+                        <label>Body></label>
+                        <div id="bodyArmorInsert"></div>
                     </div>
                 </div>
             </div>
@@ -205,16 +202,13 @@
     </div>
 
 
-    <!-- CyberWear -->
-    <div class="item roundedEdges flexColumn backgroundMain">
+    <!-- Cyberware -->
+    <div class="item roundedEdges flexColumn backgroundMain stretchAcross">
         <h3>CYBERWARE</h3>
-        <img src="images/body.png" width="240" height="500" alt="outline of a body">
-    </div>
-
-    <!-- CyberWear -->
-    <div class="item roundedEdges flexColumn backgroundMain">
-        <h3>CYBERWARE</h3>
-        <img src="images/body.png" width="240" height="500" alt="outline of a body">
+        <!-- <img src="images/body.png" width="240" height="500" alt="outline of a body"> -->
+        <div id="container_cyberware" class="flexColumn gap">
+        </div>
+        <button class="addButton" id="add_cyberware">+</button>
     </div>
 
     <!-- Respect -->
