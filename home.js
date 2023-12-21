@@ -1,10 +1,27 @@
 var attributeArray = ["INT","REF","DEX","TECH","COOL","WILL","LUCK","MOVE","BODY","EMP"]
 var diceArray = ["D2","D4","D6","D8","D10","D12","D20","D100"]
 var cyberwareLocationArray = ["Right Cybereye","Left Cybereye", "CyberAudio Suite","Right Cyberarm","Left Cyberarm","Neural Link","Right Cyberleg","Left Cyberleg","Internal Cyberware","External Cyberware","Fashionware","Borgware"]
-var classArray = ["solo","netrunner","fixer","nomad","rockerboy","techie","corporate","cop"]
+var roleArray = ["solo","netrunner","fixer","nomad","rockerboy","techie","corporate","cop"]
 var skillArray = ["Accounting [INT]", "Acting [COOL]", "Air Vehicle Tech [TECH]", "Animal Handling [INT]", "Archery [REF]", "Athletics [DEX]", "Autofire [REF]", "Basic Tech [TECH]", "Brawling [DEX]", "Bribery [COOL]", "Bureaucracy [INT]", "Business [INT]", "Composition [INT]", "Conceal/Reveal Object [INT]", "Concentration [WILL]", "Contortionist [DEX]", "Conversation [EMP]", "Criminology [INT]", "Cryptography [INT]", "Cyber Tech [TECH]", "Dance [DEX]", "Deduction [INT]", "Demolitions [TECH]", "Drive Land Vehicle [REF]", "Driving [REF]", "Education [INT]", "Electronics/Security Tech [TECH]", "Endurance [WILL]", "Evasion [DEX]", "First Aid [TECH]", "Forgery [TECH]", "Gamble [INT]", "Handgun [REF]", "Heavy Weapons [REF]", "Human Perception [EMP]", "Interrogation [COOL]", "Land Vehicle Tech [TECH]", "Language [INT]", "Library Search [INT]", "Lipreading [INT]", "Local Expert [INT]", "Marksmanship [REF]", "Martial Arts [DEX]", "Melee Weapon [DEX]", "Paint/Draw/Sculpt [TECH]", "Paramedic [TECH]", "Perception [INT]", "Personal Grooming [COOL]", "Persuasion [COOL]", "Photography/Film [TECH]", "Picklock [TECH]", "Pickpocket [TECH]", "Pilot Air Vehicle [REF]", "Pilot Sea Vehicle [REF]", "Play Instrument [EMP]", "Resist Torture/Drugs [WILL]", "Riding [REF]", "Science [INT]", "Sea Vehicle Tech [TECH]", "Shoulder Arms [REF]", "Stealth [DEX]", "Streetwise [COOL]", "Tactics [INT]", "Tracking [INT]", "Trading [COOL]", "Wardrobe/Style [COOL]", "Weapons Tech [TECH]", "Wilderness Survival [INT]"]
 var armorArray = ["none [SP-0]","Leathers [SP-4]","Kevlar [SP-7]", "LightArmorJack [SP-11]","Bodyweight Suit [SP-11]", "Medium Armorjack [SP-11]","Heavy Armorjack [SP-13]","Flak [SP-15]","Metalgear [SP-18]","Bulletproof Shield [HP-10]"]
-var storage = []
+
+//This is the format to store character data for export
+var storage = {
+    characterName: "",
+    role: 0, //index for roleArray
+    trackers: {currentHP: 0, TotalHP:0, SeriouslyWounded:0,DeathSaves:0,LuckRemaining:0},
+    armor: {head:0,body:0},
+    euroBucks: 0,
+    skills: [{name:"",bonus:0}],
+    weapons:[{name:"",diceAmount:0,diceType:0}],
+    cyberware:[{name:"",data:"",location:0}],
+    respect:[{name:"",amount:0}],
+    inventory:[""]
+}
+
+
+
+
 const slot = {
     parent: null,
     children: []
@@ -18,7 +35,7 @@ function getAllAttributeElms(){
 }
 function addOnChangeAttribute(){
     getAllAttributeElms().forEach((element) => element.addEventListener("change", (event) => {
-        console.log("changed");
+        collectAllInputs();
         updateAttributeTotal();
     }) );
 }
@@ -231,7 +248,7 @@ function storeSlot(row, parentContainer){
 
 function createRoleDropdown(){
     var insertPlacement = document.getElementById("roleInsert");
-    var dropdown = createDropDown(classArray);
+    var dropdown = createDropDown(roleArray);
     dropdown = addSideBars(dropdown);
     insertPlacement.appendChild(dropdown);
 }
