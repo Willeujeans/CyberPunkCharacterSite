@@ -156,7 +156,7 @@ input{
 .individualTrackerContainer{
     overflow:hidden;
     border:1px solid var(--text);
-    width:10rem;
+    width:11.2rem;
 }
 .individualStatContainer{
     width:10rem;
