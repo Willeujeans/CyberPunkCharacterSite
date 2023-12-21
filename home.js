@@ -153,6 +153,7 @@ function createCyberwareSlot(parentContainer){
     var row = createRow();
     row.classList.add("flexRow");
     row.classList.add("borderBottom");
+    row.classList.add("roundedEdges");
 
     var column = document.createElement("div");
     column.classList.add("flexColumn");
@@ -162,11 +163,13 @@ function createCyberwareSlot(parentContainer){
     textInput.type = "text";
     textInput.placeholder = "data entry";
     textInput.classList.add("textAlignLeft");
+    textInput = addSideBars(textInput);
 
     var dataText = document.createElement("input");
     dataText.type = "text";
     dataText.placeholder = "data entry";
     dataText.classList.add("textAlignLeft");
+    dataText = addSideBars(dataText);
 
     column.appendChild(textInput);
     column.appendChild(dataText);
