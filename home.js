@@ -134,20 +134,26 @@ function createWeaponSlot(parentContainer){
 
 function createCyberwareSlot(parentContainer){
     var row = createRow();
-    row.classList.add("columnMobileRowDesktop");
+    row.classList.add("flexRow");
     row.classList.add("borderBottom");
+
+    var column = document.createElement("div");
+    column.classList.add("flexColumn");
+
 
     var textInput = document.createElement("input");
     textInput.type = "text";
     textInput.placeholder = "data entry";
     textInput.classList.add("textAlignLeft");
-    row.appendChild(textInput);
 
     var dataText = document.createElement("input");
     dataText.type = "text";
     dataText.placeholder = "data entry";
     dataText.classList.add("textAlignLeft");
-    row.appendChild(dataText);
+
+    column.appendChild(textInput);
+    column.appendChild(dataText);
+    row.appendChild(column);
 
     var placement = createDropDown(cyberwareLocationArray);
     placement.classList.add("textAlignLeft");
