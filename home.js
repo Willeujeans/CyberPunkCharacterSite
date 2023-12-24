@@ -2,7 +2,7 @@ var attributeArray = ["INT","REF","DEX","TECH","COOL","WILL","LUCK","MOVE","BODY
 var diceArray = ["D2","D4","D6","D8","D10","D12","D20","D100"]
 var cyberwareLocationArray = ["Right Cybereye","Left Cybereye", "CyberAudio Suite","Right Cyberarm","Left Cyberarm","Neural Link","Right Cyberleg","Left Cyberleg","Internal Cyberware","External Cyberware","Fashionware","Borgware"]
 var roleArray = ["solo","netrunner","fixer","nomad","rockerboy","techie","corporate","cop"]
-var skillArray = ["Accounting [INT]", "Acting [COOL]", "Air Vehicle Tech [TECH]", "Animal Handling [INT]", "Archery [REF]", "Athletics [DEX]", "Autofire [REF]", "Basic Tech [TECH]", "Brawling [DEX]", "Bribery [COOL]", "Bureaucracy [INT]", "Business [INT]", "Composition [INT]", "Conceal/Reveal Object [INT]", "Concentration [WILL]", "Contortionist [DEX]", "Conversation [EMP]", "Criminology [INT]", "Cryptography [INT]", "Cyber Tech [TECH]", "Dance [DEX]", "Deduction [INT]", "Demolitions [TECH]", "Drive Land Vehicle [REF]", "Driving [REF]", "Education [INT]", "Electronics/Security Tech [TECH]", "Endurance [WILL]", "Evasion [DEX]", "First Aid [TECH]", "Forgery [TECH]", "Gamble [INT]", "Handgun [REF]", "Heavy Weapons [REF]", "Human Perception [EMP]", "Interrogation [COOL]", "Land Vehicle Tech [TECH]", "Language [INT]", "Library Search [INT]", "Lipreading [INT]", "Local Expert [INT]", "Marksmanship [REF]", "Martial Arts [DEX]", "Melee Weapon [DEX]", "Paint/Draw/Sculpt [TECH]", "Paramedic [TECH]", "Perception [INT]", "Personal Grooming [COOL]", "Persuasion [COOL]", "Photography/Film [TECH]", "Picklock [TECH]", "Pickpocket [TECH]", "Pilot Air Vehicle [REF]", "Pilot Sea Vehicle [REF]", "Play Instrument [EMP]", "Resist Torture/Drugs [WILL]", "Riding [REF]", "Science [INT]", "Sea Vehicle Tech [TECH]", "Shoulder Arms [REF]", "Stealth [DEX]", "Streetwise [COOL]", "Tactics [INT]", "Tracking [INT]", "Trading [COOL]", "Wardrobe/Style [COOL]", "Weapons Tech [TECH]", "Wilderness Survival [INT]"]
+var skillArray = [ {name:"Accounting", attribute: "INT"}, {name: "Acting", attribute:"COOL"}, {name: "Air Vehicle Tech", attribute:"TECH"}, {name: "Animal Handling ", attribute:"INT"}, {name: "Archery ", attribute:"REF"}, {name: "Athletics ", attribute:"DEX"}, {name: "Autofire", attribute:"REF"}, {name: "Basic Tech", attribute: "TECH"}, {name: "Brawling", attribute:"DEX"}, {name: "Bribery", attribute:"COOL"}, {name: "Bureaucracy", attribute:"INT"}, {name: "Business", attribute:"INT"}, {name: "Composition", attribute:"INT"}, {name: "Conceal/Reveal Object", attribute:"INT"}, {name: "Concentration", attribute:"WILL"}, {name: "Contortionist", attribute:"DEX"}, {name: "Conversation", attribute:"EMP"}, {name: "Criminology", attribute:"INT"}, {name: "Cryptography", attribute:"INT"}, {name: "Cyber Tech ", attribute:"TECH"}, {name: "Dance ", attribute:"DEX"}, {name: "Deduction ", attribute:"INT"}, {name: "Demolitions ", attribute:"TECH"}, {name: "Drive Land Vehicle ", attribute:"REF"}, {name: "Driving ", attribute:"REF"}, {name: "Education ", attribute:"INT"}, {name: "Electronics/Security Tech ", attribute:"TECH"}, {name: "Endurance ", attribute:"WILL"}, {name: "Evasion ", attribute:"DEX"}, {name: "First Aid ", attribute:"TECH"}, {name: "Forgery ", attribute:"TECH"}, {name: "Gamble ", attribute:"INT"}, {name: "Handgun ", attribute:"REF"}, {name: "Heavy Weapons", attribute:"REF"}, {name: "Human Perception", attribute:"EMP"}, {name: "Interrogation", attribute: "COOL"},{name: "Land Vehicle Tech", attribute: "TECH"}, {name: "Language", attribute: "INT"}, {name: "Library Search", attribute: "INT"}, {name: "Lipreading", attribute: "INT"}, {name: "Local Expert", attribute: "INT"}, {name: "Marksmanship", attribute: "REF"}, {name: "Martial Arts", attribute: "DEX"}, {name: "Melee Weapon", attribute: "DEX"}, {name: "Paint/Draw/Sculpt", attribute: "TECH"}, {name: "Paramedic ", attribute: "TECH"}, {name: "Perception", attribute: "INT"}, {name: "Personal Grooming", attribute: "COOL"}, {name: "Persuasion", attribute: "COOL"}, {name: "Photography/Film ", attribute: "TECH"}, {name: "Picklock", attribute: "TECH"}, {name: "Pickpocket", attribute: "TECH"}, {name: "Pilot Air Vehicle", attribute: "REF"}, {name: "Pilot Sea Vehicle ", attribute: "REF"}, {name: "Play Instrument ", attribute: "EMP"}, {name: "Resist Torture/Drugs ", attribute: "WILL"}, {name: "Riding ", attribute: "REF"}, {name: "Science", attribute: "INT"}, {name: "Sea Vehicle Tech", attribute: "TECH"}, {name: "Shoulder Arms", attribute: "REF"}, {name: "Stealth", attribute: "DEX"}, {name: "Streetwise", attribute: "COOL"}, {name: "Tactics", attribute: "INT"}, {name: "Tracking", attribute: "INT"}, {name: "Trading", attribute: "COOL"}, {name: "Wardrobe/Style", attribute: "COOL"}, {name: "Weapons Tech", attribute: "TECH"}, {name: "Wilderness Survival", attribute: "INT"}]
 var armorArray = ["none [SP-0]","Leathers [SP-4]","Kevlar [SP-7]", "LightArmorJack [SP-11]","Bodyweight Suit [SP-11]", "Medium Armorjack [SP-11]","Heavy Armorjack [SP-13]","Flak [SP-15]","Metalgear [SP-18]","Bulletproof Shield [HP-10]"]
 
 //This is the format to store character data for export
@@ -30,12 +30,11 @@ const slot = {
 function getAllAttributeElms(){
     var arrayOfAttributeElms = [];
     attributeArray.forEach((element) => arrayOfAttributeElms.push(document.getElementById(element)));
-    console.log(arrayOfAttributeElms);
     return arrayOfAttributeElms;
 }
+
 function addOnChangeAttribute(){
     getAllAttributeElms().forEach((element) => element.addEventListener("change", (event) => {
-        collectAllInputs();
         updateAttributeTotal();
     }) );
 }
@@ -87,24 +86,33 @@ function giveAddButtonFunctionality(buttonName){
         });
     }
 }
+
+//cycle through all skills and create them
 function createSkillSlot(parentContainer){
-    var row = createRow();
-    var skillDropdown = createDropDown(skillArray);
-    skillDropdown.classList.add("alignLeft");
-    var plusText = createText("+");
-    plusText.classList.add("skillBonusNumber");
+    for(var i=0; i < skillArray.length;i++){
+        var row = createRow();
+        row.classList.add("alignLeft");
+        var skillName = createText(skillArray[i].name);
+        var skillAttribute = createText(skillArray[i].attribute);
+        skillAttribute = addSideBars(skillAttribute);
+        var plusText = createText("+");
+        plusText.classList.add("skillBonusNumber");
 
-    var numInput = document.createElement("input");
-    numInput.type = "number";
-    numInput.classList.add("inputSmaller");
-    numInput.placeholder = 0;
+        var numInput = document.createElement("input");
+        numInput.type = "number";
+        numInput.classList.add("inputSmaller");
+        numInput.placeholder = 0;
 
-    row.appendChild(skillDropdown);
-    row.appendChild(plusText);
-    row.appendChild(numInput);
-    row = addSideBars(row);
-    parentContainer.appendChild(row);
-    storeSlot(row, parentContainer);
+        row.appendChild(skillName);
+        row.appendChild(skillAttribute);
+        row.appendChild(plusText);
+        row.appendChild(numInput);
+        row = addSideBars(row);
+        row.classList.add("alignLeft");
+        row.classList.add("textAlignLeft");
+        parentContainer.appendChild(row);
+        //storeSlot(row, parentContainer);
+    }
 }
 
 function createRespectSlot(parentContainer){
@@ -152,7 +160,7 @@ function createWeaponSlot(parentContainer){
 function createCyberwareSlot(parentContainer){
     var row = createRow();
     row.classList.add("flexRow");
-    row.classList.add("borderBottom");
+    row.classList.add("cyberwareSlot");
     row.classList.add("roundedEdges");
 
     var column = document.createElement("div");
@@ -163,12 +171,14 @@ function createCyberwareSlot(parentContainer){
     textInput.type = "text";
     textInput.placeholder = "data entry";
     textInput.classList.add("textAlignLeft");
+    textInput.classList.add("thinnerInput");
     textInput = addSideBars(textInput);
 
     var dataText = document.createElement("input");
     dataText.type = "text";
     dataText.placeholder = "data entry";
     dataText.classList.add("textAlignLeft");
+    dataText.classList.add("thinnerInput");
     dataText = addSideBars(dataText);
 
     column.appendChild(textInput);
@@ -271,7 +281,6 @@ function createBodyArmorDropdown(){
 }
 
 //(buttonName, [text, string], [select,options], number)
-giveAddButtonFunctionality("add_skill");
 giveAddButtonFunctionality("add_weapon");
 giveAddButtonFunctionality("add_cyberware");
 giveAddButtonFunctionality("add_respect");
@@ -279,3 +288,4 @@ giveAddButtonFunctionality("add_inventory");
 
 createRoleDropdown();
 createBodyArmorDropdown();
+createSkillSlot(document.getElementById("container_skill"));

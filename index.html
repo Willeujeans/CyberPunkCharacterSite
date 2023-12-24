@@ -27,13 +27,13 @@
     </div>
 
  <!-- Character Name and Role -->
-    <div class="item backgroundMain roundedEdges setHeight">
-        <div class ="flexRow gap">
+    <div class="item backgroundMain roundedEdges">
+        <div class ="columnMobileRowDesktop gap">
             <div class="flexColumn">
                 <label class="largerText">CHARACTER NAME</label>
                 <div class="flexRow">
                     <p class="sideBars">[</p>
-                        <input id="characterName" class="data roundedEdges width95" type="text" placeholder="data entry">
+                        <input id="characterName" class="data roundedEdges" type="text" placeholder="data entry">
                     <p class="sideBars">]</p>
                 </div>
                 
@@ -50,35 +50,30 @@
 
 <!-- HP, Wounds, Death Saves, Luck -->
 <div class="item roundedEdges stretchAcross flexColumn backgroundMain">
-    <div class="statListContainer">
+    <div class="columnMobileRowDesktop gap">
         <div class="flexColumn individualTrackerContainer roundedEdges">
-            <div class="backgroundWhite">
-                <label class="statLabel">Current HP</label>
-            </div>
+                <label class="statLabel">Current Health</label>
+                <div class="whiteBackground"></div>
             <input id="trackerCURRENTHP" class="data removeBorder statInput" type="number" placeholder="0"></input>
         </div>
         <div class="flexColumn individualTrackerContainer roundedEdges">
-            <div class="backgroundWhite">
-                <label  class="statLabel">Total HP</label>
-            </div>
+                <label  class="statLabel">Total Health</label>
+                <div class="whiteBackground"></div>
             <input id="trackerCURRENTHP" class="removeBorder statInput" type="number" placeholder="0"></input>
         </div>
         <div class="flexColumn individualTrackerContainer roundedEdges">
-            <div class="backgroundWhite">
-                <label class="statLabel">Seriously Wounded</label>
-            </div>
+                <label class="statLabel">Badly Wounded</label>
+                <div class="whiteBackground"></div>
             <input id="trackerCURRENTHP" class="removeBorder statInput" type="number" placeholder="0"></input>
         </div>
         <div class="flexColumn individualTrackerContainer roundedEdges">
-            <div class="backgroundWhite">
                 <label class="statLabel">Death Saves</label>
-            </div>
+                <div class="whiteBackground"></div>
             <input id="trackerCURRENTHP" class="removeBorder statInput" type="number" placeholder="0"></input>
         </div>
         <div class="flexColumn individualTrackerContainer roundedEdges">
-            <div class="backgroundWhite">
                 <label class="statLabel">Luck Remaining</label>
-            </div>
+                <div class="whiteBackground"></div>
             <input id="trackerCURRENTHP" class="removeBorder statInput" type="number" placeholder="0"></input>
         </div>
     </div>
@@ -88,76 +83,63 @@
         <div class="statListContainer">
             <!-- StatsList -->
             <div class="flexColumn individualStatContainer roundedEdges">
-                <div class="backgroundWhite">
                 <label class="statLabel">INT</label>
-                </div>
+                <div class="whiteBackground"></div>
                 <input id="INT" class="removeBorder statInput" type="number" placeholder="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
-                <div class="backgroundWhite">
                 <label class="statLabel">REF</label>
-                </div>
+                <div class="whiteBackground"></div>
                 <input id="REF" class="removeBorder statInput" type="number" placeholder="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
-                <div class="backgroundWhite">
                 <label class="statLabel">DEX</label>
-                </div>
+                <div class="whiteBackground"></div>
                 <input id="DEX" class="removeBorder statInput" type="number" placeholder="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
-                <div class="backgroundWhite">
                 <label class="statLabel">TECH</label>
-                </div>
+                <div class="whiteBackground"></div>
                 <input id="TECH" class="removeBorder statInput" type="number" placeholder="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
-                <div class="backgroundWhite">
                 <label class="statLabel">COOL</label>
-                </div>
+                <div class="whiteBackground"></div>
                 <input id="COOL" class="removeBorder statInput" type="number" placeholder="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
-                <div class="backgroundWhite">
                 <label class="statLabel">WILL</label>
-                </div>
+                <div class="whiteBackground"></div>
                 <input id="WILL" class="removeBorder statInput" type="number" placeholder="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
-                <div class="backgroundWhite">
                 <label class="statLabel">LUCK</label>
-                </div>
+                <div class="whiteBackground"></div>
                 <input id="LUCK" class="removeBorder statInput" type="number" placeholder="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
-                <div class="backgroundWhite">
                 <label  class="statLabel">MOVE</label>
-                </div>
+                <div class="whiteBackground"></div>
                 <input id="MOVE" class="removeBorder statInput" type="number" placeholder="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
-                <div class="backgroundWhite">
                 <label class="statLabel">BODY</label>
-                </div>
+                <div class="whiteBackground"></div>
                 <input id="BODY" class="removeBorder statInput" type="number" placeholder="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
-                <div class="backgroundWhite">
                 <label class="statLabel">EMP</label>
-                </div>
+                <div class="whiteBackground"></div>
                 <input id="EMP" class="removeBorder statInput" type="number" placeholder="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
-                <div class="backgroundWhite">
-                <label class="statLabel">TOTAL</label>
-                </div>
                 <p id="TOTAL" class="removeBorder">0</p>
             </div>
         </div>
     </div>
 
          <!-- Armor -->
-         <div class="item roundedEdges flexColumn backgroundMain">
+         <div class="item roundedEdges flexColumn backgroundMain setLargerHeight">
             <div class="flexColumn gapLarger">
                 <div class="flexColumn">
                     <div class="flexRow">
@@ -175,7 +157,7 @@
         </div>
 
          <!-- Eurobucks -->
-         <div class="item roundedEdges flexColumn backgroundMain">
+         <div class="item roundedEdges flexColumn backgroundMain setLargerHeight">
             <h3>EUROBUCKS</h3>
             <div class="flexRow">
                 <p class="sideBars">[</p>
@@ -188,9 +170,17 @@
              <!-- Skills -->
    <div class="item roundedEdges heightAuto flexColumn backgroundMain stretchAcross">
     <h3>SKILLS</h3>
-        <div id="container_skill" class="flexColumn gap">
+    <h3>---INT---</h3>
+    <h3>---REF---</h3>
+    <h3>---DEX---</h3>
+    <h3>---TECH---</h3>
+    <h3>---WILL---</h3>
+    <h3>---LUCK---</h3>
+    <h3>---MOVE---</h3>
+    <h3>---BODY---</h3>
+    <h3>---EMP---</h3>
+        <div id="container_skill" class="container gap">
         </div>
-        <button class="addButton" id="add_skill">+</button>
    </div>
 
     <!-- Weapons -->
