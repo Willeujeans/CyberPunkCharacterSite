@@ -85,52 +85,52 @@
             <div class="flexColumn individualStatContainer roundedEdges">
                 <label class="statLabel">INT</label>
                 <div class="whiteBackground"></div>
-                <input id="INT" class="removeBorder statInput" type="number" placeholder="0"></input>
+                <input id="INT" class="removeBorder statInput" type="number" value ="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
                 <label class="statLabel">REF</label>
                 <div class="whiteBackground"></div>
-                <input id="REF" class="removeBorder statInput" type="number" placeholder="0"></input>
+                <input id="REF" class="removeBorder statInput" type="number" value ="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
                 <label class="statLabel">DEX</label>
                 <div class="whiteBackground"></div>
-                <input id="DEX" class="removeBorder statInput" type="number" placeholder="0"></input>
+                <input id="DEX" class="removeBorder statInput" type="number" value ="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
                 <label class="statLabel">TECH</label>
                 <div class="whiteBackground"></div>
-                <input id="TECH" class="removeBorder statInput" type="number" placeholder="0"></input>
+                <input id="TECH" class="removeBorder statInput" type="number" value ="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
                 <label class="statLabel">COOL</label>
                 <div class="whiteBackground"></div>
-                <input id="COOL" class="removeBorder statInput" type="number" placeholder="0"></input>
+                <input id="COOL" class="removeBorder statInput" type="number" value ="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
                 <label class="statLabel">WILL</label>
                 <div class="whiteBackground"></div>
-                <input id="WILL" class="removeBorder statInput" type="number" placeholder="0"></input>
+                <input id="WILL" class="removeBorder statInput" type="number" value ="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
                 <label class="statLabel">LUCK</label>
                 <div class="whiteBackground"></div>
-                <input id="LUCK" class="removeBorder statInput" type="number" placeholder="0"></input>
+                <input id="LUCK" class="removeBorder statInput" type="number" value ="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
                 <label  class="statLabel">MOVE</label>
                 <div class="whiteBackground"></div>
-                <input id="MOVE" class="removeBorder statInput" type="number" placeholder="0"></input>
+                <input id="MOVE" class="removeBorder statInput" type="number" value ="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
                 <label class="statLabel">BODY</label>
                 <div class="whiteBackground"></div>
-                <input id="BODY" class="removeBorder statInput" type="number" placeholder="0"></input>
+                <input id="BODY" class="removeBorder statInput" type="number" value ="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
                 <label class="statLabel">EMP</label>
                 <div class="whiteBackground"></div>
-                <input id="EMP" class="removeBorder statInput" type="number" placeholder="0"></input>
+                <input id="EMP" class="removeBorder statInput" type="number" value ="0"></input>
             </div>
             <div class="flexColumn individualStatContainer roundedEdges">
                 <p id="TOTAL" class="removeBorder">0</p>
@@ -170,17 +170,49 @@
              <!-- Skills -->
    <div class="item roundedEdges heightAuto flexColumn backgroundMain stretchAcross">
     <h3>SKILLS</h3>
-    <h3>---INT---</h3>
-    <h3>---REF---</h3>
-    <h3>---DEX---</h3>
-    <h3>---TECH---</h3>
-    <h3>---WILL---</h3>
-    <h3>---LUCK---</h3>
-    <h3>---MOVE---</h3>
-    <h3>---BODY---</h3>
-    <h3>---EMP---</h3>
-        <div id="container_skill" class="container gap">
+    <div class="container">
+        <div class="flexColumn">
+            <h3 class="skillHolderTitle">------INT------</h3>
+            <p id="bonusNum_INT" class="attributeDisplayForSkills">[+5]</p>
+            <div class="skillHolder" id="holder_INT"></div>
         </div>
+
+        <div class="flexColumn">
+            <h3 class="skillHolderTitle">------REF------</h3>
+            <p id="bonusNum_REF" class="attributeDisplayForSkills">[+5]</p>
+            <div class="skillHolder" id="holder_REF"></div>
+        </div>
+
+        <div class="flexColumn">
+            <h3 class="skillHolderTitle">------DEX------</h3>
+            <p id="bonusNum_DEX" class="attributeDisplayForSkills">[+5]</p>
+            <div class="skillHolder" id="holder_DEX"></div>
+        </div>
+
+        <div class="flexColumn">
+            <h3 class="skillHolderTitle">------TECH------</h3>
+            <p id="bonusNum_TECH" class="attributeDisplayForSkills">[+5]</p>
+            <div class="skillHolder" id="holder_TECH"></div>
+        </div>
+
+        <div class="flexColumn">
+            <h3 class="skillHolderTitle">------COOL------</h3>
+            <p id="bonusNum_COOL" class="attributeDisplayForSkills">[+5]</p>
+            <div class="skillHolder" id="holder_COOL"></div>
+        </div>
+
+        <div class="flexColumn">
+            <h3 class="skillHolderTitle">------WILL------</h3>
+            <p id="bonusNum_WILL" class="attributeDisplayForSkills">[+5]</p>
+            <div class="skillHolder" id="holder_WILL"></div>
+        </div>
+
+        <div class="flexColumn">
+            <h3 class="skillHolderTitle">------EMP------</h3>
+            <p id="bonusNum_EMP" class="attributeDisplayForSkills">[+5]</p>
+            <div class="skillHolder" id="holder_EMP"></div>
+        </div>
+    </div>
    </div>
 
     <!-- Weapons -->

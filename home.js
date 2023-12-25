@@ -88,30 +88,32 @@ function giveAddButtonFunctionality(buttonName){
 }
 
 //cycle through all skills and create them
-function createSkillSlot(parentContainer){
+function createSkillSlot(){
     for(var i=0; i < skillArray.length;i++){
         var row = createRow();
+        row.style.position = "relative";
+        row.classList.add("width100");
         row.classList.add("alignLeft");
         var skillName = createText(skillArray[i].name);
-        var skillAttribute = createText(skillArray[i].attribute);
-        skillAttribute = addSideBars(skillAttribute);
-        var plusText = createText("+");
-        plusText.classList.add("skillBonusNumber");
 
         var numInput = document.createElement("input");
         numInput.type = "number";
         numInput.classList.add("inputSmaller");
         numInput.placeholder = 0;
 
-        row.appendChild(skillName);
-        row.appendChild(skillAttribute);
-        row.appendChild(plusText);
         row.appendChild(numInput);
-        row = addSideBars(row);
+        row.appendChild(skillName);
+
+        var cont = document.createElement("div");
+        cont.classList.add("flexRow");
+        cont.classList.add("alignRight");
+        var result = createText("= 0");
+        cont.appendChild(result);
+        row.appendChild(cont);
+
         row.classList.add("alignLeft");
         row.classList.add("textAlignLeft");
-        parentContainer.appendChild(row);
-        //storeSlot(row, parentContainer);
+        document.getElementById("holder_" + skillArray[i].attribute).appendChild(row);
     }
 }
 
@@ -288,4 +290,4 @@ giveAddButtonFunctionality("add_inventory");
 
 createRoleDropdown();
 createBodyArmorDropdown();
-createSkillSlot(document.getElementById("container_skill"));
+createSkillSlot();
