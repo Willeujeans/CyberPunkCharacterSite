@@ -93,6 +93,7 @@ function giveAddButtonFunctionality(buttonName){
     }
 }
 
+var skillResults = []
 //cycle through all skills and create them
 function createSkillSlot(){
     for(var i=0; i < skillArray.length;i++){
@@ -102,10 +103,12 @@ function createSkillSlot(){
         row.classList.add("alignLeft");
         var skillName = createText(skillArray[i].name);
 
+
         var numInput = document.createElement("input");
         numInput.type = "number";
+        numInput.id = "input_" + skillArray[i].name;
         numInput.classList.add("inputSmaller");
-        numInput.placeholder = 0;
+        numInput.value = 0;
 
         row.appendChild(numInput);
         row.appendChild(skillName);
@@ -113,7 +116,26 @@ function createSkillSlot(){
         var cont = document.createElement("div");
         cont.classList.add("flexRow");
         cont.classList.add("alignRight");
+
         var result = createText("= 0");
+        result.id = "output_" + skillArray[i].name;
+
+        numInput.addEventListener("change", (event) => {
+            var inputElm = event.target.id;
+            var inputVal = event.target.value;
+            var skillName = inputElm.split("_")[1];
+            var attributeName = searchSkillListForAttribute(skillArray, skillName);
+            var attributeBonusValue = document.getElementById(attributeName).value;
+            var outputElm = document.getElementById("output_"+skillName);
+            var final = parseInt(inputVal) + parseInt(attributeBonusValue);
+            if(final >= 10){
+                outputElm.innerHTML = "=" + final;
+            }else{
+                outputElm.innerHTML = "="+ " " + final;
+            }
+        });
+
+        skillResults.push(result);
         cont.appendChild(result);
         row.appendChild(cont);
 
@@ -121,6 +143,15 @@ function createSkillSlot(){
         row.classList.add("textAlignLeft");
         document.getElementById("holder_" + skillArray[i].attribute).appendChild(row);
     }
+}
+
+function searchSkillListForAttribute(inArray, compare){
+    for(var i =0; i < inArray.length; i++){
+        if (inArray[i].name == compare){
+            return inArray[i].attribute;
+        }
+    }
+    return "";
 }
 
 function createRespectSlot(parentContainer){
