@@ -36,7 +36,13 @@ function getAllAttributeElms(){
 function addOnChangeAttribute(){
     getAllAttributeElms().forEach((element) => element.addEventListener("change", (event) => {
         updateAttributeTotal();
+        updateAttributeBonus(element);
     }) );
+}
+function updateAttributeBonus(element){
+    var elm = document.getElementById("bonusNum_" + element.id)
+    console.log(elm, "bonusNum_" + element.id);
+    elm.innerHTML = "+" + element.value
 }
 
 function updateAttributeTotal(){
